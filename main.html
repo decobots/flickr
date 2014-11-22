@@ -25,8 +25,27 @@
             methodGetToken = "flickr.auth.getToken";
             sig = secret + "api_key" + apiKey + "formatjsonfrob" + frob + "method" + methodGetToken;
             signature = MD5(sig);
-            request = "http://api.flickr.com/services/rest/?method=" + methodGetToken + "&api_key=" + apiKey + "&frob=" + frob + "&format=json&api_sig=" + signature+"&jsoncallback=?";
-            $.getJSON(request, function(data){ console.log(data);}); 
+            request = "http://api.flickr.com/services/rest/?method=" + methodGetToken + "&api_key=" + apiKey + "&frob=" + frob + "&format=json&api_sig=" + signature;
+         //   $.getJSON(request, function(data){ console.log(data);}); 
+       
+    
+
+
+
+                        jQuery.ajax({
+                    dataType: 'jsonp',
+                    url: request,
+                    cache: true,
+                            crossDomain:true,
+                    jsonp:'jsoncallback',
+                    jsonpCallback: 'tagsGetListUserCallback',
+                    });
+
+                    // the Callback:
+                    function tagsGetListUserCallback (data) {
+                  console.log(data);
+                }
+            
         }
 		</script>
 </head>
