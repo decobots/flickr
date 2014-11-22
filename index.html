@@ -18,7 +18,7 @@
 		var apiSig="e52acb5c99e22beb439c38cdbbdf633f";
 		var md5=MD5(secret+ 'api_key' + apiKey + 'perms' + "write");
 //		$.get("https://api.flickr.com/services/rest/?method="+method+"&api_key="+apiKey+"&user_id="+uId+"&format="+format+"&auth_token="+token+"&api_sig="+apiSig,function(data){console.log(data)});
-		$.get("https://flickr.com/services/auth/?api_key="+apiKey+"&perms=write&api_sig="+md5,function(data){console.log("auth");console.log(data)});
+		$.ajax("https://flickr.com/services/auth/?api_key="+apiKey+"&perms=write&api_sig="+md5,function(data){console.log("auth");console.log(data)});
 		}
 		
 		</script>
