@@ -32,14 +32,11 @@ $.ajax({
   crossDomain :true,
     jsonp: false,
    cache: true,
-jsonpCallback: 'jsonFlickrApi',
     
 
-}); 
+}).done(function(data){ jsonFlickrApi (data) }) ;
  
-
-
-        }
+}
     
      function jsonFlickrApi (response) {
   console.log(response );
