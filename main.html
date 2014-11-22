@@ -21,12 +21,11 @@
          frob=window.document.location.search.split("?frob=")[1];
 
             methodGetToken = "flickr.auth.getToken";
-            sig = secret + "api_key" + apiKey + "frob" + frob + "formatjsonmethod" + methodGetToken;
+            sig = secret + "api_key" + apiKey + "formatjsonfrob" + frob + "method" + methodGetToken;
             signature = MD5(sig);
             request = "http://api.flickr.com/services/rest/?method=" + methodGetToken + "&api_key=" + apiKey + "&frob=" + frob + "&format=json&api_sig=" + signature;
             
-     https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key=82a28696e8c90d375fa37aaea9bfa6b8&frob=72157649003875929-a9a6c6facea7b51a-76158147&format=json&api_sig=5381fe9d535c89b066f22f9bf94450dd&_=1416687865046
-// $.getJSON( request, { format: "json", })
+
 $.ajax({
   dataType: "jsonp",
   url: request,
