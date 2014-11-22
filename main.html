@@ -32,16 +32,23 @@
 
 
 
-                        jQuery.ajax({
-                    dataType: 'jsonp',
-                    url: request,
-                    cache: true,
-                        //    crossDomain:true,
+         //               jQuery.load({
+        //         dataType: 'jsonp',
+        ///           url: request,
+        //            cache: true,
+        //                //    crossDomain:true,
                  
-                    }).done(function(data){console.log(data)});
+        //            }).done(function(data){console.log(data)});
 
                     // the Callback:
                
+            
+              var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+ $.getJSON( flickerAPI, {
+    tags: "mount rainier",
+    tagmode: "any",
+    format: "json"
+  })(); 
             
         }
 		</script>
