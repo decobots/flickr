@@ -26,7 +26,7 @@
 
             //https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key="+apiKey+"&format=json&frob="+frob+"&api_sig="+api_sig+"&jsoncallback=?
             
-            $.getJSON(" https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key=82a28696e8c90d375fa37aaea9bfa6b8&frob="+frob+"&api_sig="+api_sig,
+            $.getJSON(" https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key=82a28696e8c90d375fa37aaea9bfa6b8&frob="+frob+"&api_sig="+api_sig+"&format=json",
                         function(data){ console.log(data);}
                      );
     }
