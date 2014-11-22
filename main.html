@@ -45,8 +45,15 @@
             
               var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
  $.getJSON( request, {
-    format: "json"
+    format: "json",
+     
   })
+ 
+ 
+ function jsonFlickrApi (response) {
+  console.log(response );
+  // Handle the response here. I.E update the DOM, trigger event handlers etc.
+}
             
         }
 		</script>
