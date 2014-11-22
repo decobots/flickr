@@ -33,22 +33,17 @@
 
 
                         jQuery.ajax({
-                    dataType: 'jsonp',
+                    dataType: 'json',
                     url: request,
                     cache: true,
                     //        crossDomain:true,
-                    jsonp:'jsonCallback',
-                    jsonpCallback: 'tagsGetListUserCallback',
-                    });
+                 
+                    }).done(function(data){console.log(data)});
 
                     // the Callback:
-                    function tagsGetListUserCallback (data) {
-                         console.log("1");
-                  console.log(data);
-                }
+               
             
         }
-    var jsonFlickrApi;
 		</script>
 </head>
 	<body onload="load()">
