@@ -23,9 +23,9 @@
             //		$.get("https://api.flickr.com/services/rest/?method="+method+"&api_key="+apiKey+"&user_id="+uId+"&format="+format+"&auth_token="+token+"&api_sig="+apiSig,function(data){console.log(data)});
                     //$.ajax(" https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key="+apiKey+"&format=json&auth_token="+frob+"&api_sig="+api_sig,function(data){console.log(data);});
             methodGetToken = "flickr.auth.getToken";
-            sig = secret + "api_key" + apiKey + "formatjsonfrob" + frob + "method" + methodGetToken;
+            sig = secret + "api_key" + apiKey + "formatjsonfrob" + frob + "jsoncallback?method" + methodGetToken;
             signature = MD5(sig);
-            request = "http://api.flickr.com/services/rest/?method=" + methodGetToken + "&api_key=" + apiKey + "&frob=" + frob + "&format=json&api_sig=" + signature;
+            request = "http://api.flickr.com/services/rest/?method=" + methodGetToken + "&api_key=" + apiKey + "&frob=" + frob + "&format=json&api_sig=" + signature+"&jsoncallback=?";
             $.getJSON(request, function(data){ console.log(data);}); 
         }
 		</script>
