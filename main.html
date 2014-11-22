@@ -33,10 +33,10 @@
 
 
                         jQuery.ajax({
-                    dataType: 'json',
+                    dataType: 'jsonp',
                     url: request,
                     cache: true,
-                            crossDomain:true,
+                        //    crossDomain:true,
                  
                     }).done(function(data){console.log(data)});
 
