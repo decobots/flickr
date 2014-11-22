@@ -15,14 +15,13 @@
 		var format="rest";
 
         var frob=window.document.location.search.split("?frob=")[1];
-            		var api_sig=MD5(secret+ 'api_key' + apiKey + 'frob' +frob+ "method"+"flickr.auth.getToken");
+        var api_sig=MD5(secret+ 'api_key' + apiKey + 'frob' +frob+ "method"+"flickr.auth.getToken");
 //		$.get("https://api.flickr.com/services/rest/?method="+method+"&api_key="+apiKey+"&user_id="+uId+"&format="+format+"&auth_token="+token+"&api_sig="+apiSig,function(data){console.log(data)});
 		//$.ajax(" https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key="+apiKey+"&format=json&auth_token="+frob+"&api_sig="+api_sig,function(data){console.log(data);});
 
-            $.getJSON("https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key="+apiKey+"&format=json&auth_token="+frob+"&api_sig="+api_sig,
-        function(data){
-          console.log(data);
-        });
+            $.getJSON("https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key="+apiKey+"&format=json&auth_token="+frob+"&api_sig="+api_sig+"&jsoncallback=?",
+                        function(data){ console.log(data);}
+                     );
     }
 		</script>
 </head>
