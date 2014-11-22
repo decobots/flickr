@@ -45,9 +45,7 @@
             
               var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
  $.getJSON( request, {
-    tags: "mount rainier",
-    tagmode: "any",
-    format: "json"
+    format: "jsonp"
   })
             
         }
