@@ -28,11 +28,12 @@
      
 // $.getJSON( request, { format: "json", })
 $.ajax({
-  dataType: "json",
+  dataType: "jsonp",
   url: request,
-  //  crossDomain :true,
+  crossDomain :true,
     jsonp: false,
 jsonpCallback: 'jsonFlickrApi',
+    
 
 }); 
  
