@@ -28,12 +28,16 @@
             request = "http://api.flickr.com/services/rest/?method=" + methodGetToken + "&api_key=" + apiKey + "&frob=" + frob + "&api_sig=" + signature+"?jsoncallback=jsonFlickrApi";
             
      
- $.getJSON( request, {
-    format: "json",
-     
-  })
+
  
- 
+ jQuery.ajax({
+  url: request,
+  dataType: "jsonp",
+  type: "GET",
+  cache: true,
+  callback: null,
+  data: null
+});
 
             
         }
