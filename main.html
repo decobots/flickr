@@ -19,14 +19,14 @@
 		function load(){
 
          frob=window.document.location.search.split("?frob=")[1];
-         api_sig=MD5(secret+ 'api_key' + apiKey +'formatjsonfrob'+frob+ "jsoncallback?methodflickr.auth.getToken");
+         api_sig=MD5(secret+ 'api_key' + apiKey +'frob'+frob+ "methodflickr.auth.getToken");
 //		$.get("https://api.flickr.com/services/rest/?method="+method+"&api_key="+apiKey+"&user_id="+uId+"&format="+format+"&auth_token="+token+"&api_sig="+apiSig,function(data){console.log(data)});
 		//$.ajax(" https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key="+apiKey+"&format=json&auth_token="+frob+"&api_sig="+api_sig,function(data){console.log(data);});
 
 
             //https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key="+apiKey+"&format=json&frob="+frob+"&api_sig="+api_sig+"&jsoncallback=?
             
-            $.getJSON(" https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key=6bd84d9517da84f031accf261b8c3568&frob="+frob+"&format=json&jsoncallback=?",
+            $.getJSON(" https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key=82a28696e8c90d375fa37aaea9bfa6b8&frob="+frob+"&api_sig="+api_sig,
                         function(data){ console.log(data);}
                      );
     }
