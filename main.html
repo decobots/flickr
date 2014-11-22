@@ -7,15 +7,19 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript">
 			 
-		function load(){
-		var method="flickr.favorites.getPublicList";
+    
+    	var method="flickr.favorites.getPublicList";
 		var apiKey="82a28696e8c90d375fa37aaea9bfa6b8";
 		var secret="f927e103f3d9d375";
 		
 		var format="rest";
 
-        var frob=window.document.location.search.split("?frob=")[1];
-        var api_sig=MD5(secret+ 'api_key' + apiKey + 'frob' +frob+ "method"+"flickr.auth.getToken");
+        var frob;
+        var api_sig;
+		function load(){
+
+         frob=window.document.location.search.split("?frob=")[1];
+         api_sig=MD5(secret+ 'api_key' + apiKey + 'auth_token' +frob+ "method"+"flickr.auth.getToken");
 //		$.get("https://api.flickr.com/services/rest/?method="+method+"&api_key="+apiKey+"&user_id="+uId+"&format="+format+"&auth_token="+token+"&api_sig="+apiSig,function(data){console.log(data)});
 		//$.ajax(" https://api.flickr.com/services/rest/?method=flickr.auth.getToken&api_key="+apiKey+"&format=json&auth_token="+frob+"&api_sig="+api_sig,function(data){console.log(data);});
 
