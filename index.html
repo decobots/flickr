@@ -37,14 +37,14 @@ $("#myLink").attr("href","https://flickr.com/services/auth/?api_key="+apiKey+"&p
       #but {
         left: 50%;
         top: 50%;
-        position: relative;
+        position: absolute;
         padding: 20px 50px;
       }
     </style>
     
 </head>
 	<body onload="load()">
-        <paper-button id="but" raised  center center-justified wrap><a href="" id="myLink">Sign in</a></paper-button>
+      <a href="" id="myLink"> <paper-button id="but" raised  wrap>Sign in</paper-button></a>
 
 	</body>
 </html>
