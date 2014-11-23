@@ -7,31 +7,28 @@
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="md5.js"></script>
 <script type="text/javascript">
-		var apiKey="82a28696e8c90d375fa37aaea9bfa6b8";
-		var secret="f927e103f3d9d375";
-		
+        localStorage["apiKey"]="82a28696e8c90d375fa37aaea9bfa6b8";
+		localStorage["secret"]="f927e103f3d9d375";
 		var format="json";
-
-        var frob;
         var api_sig;
-		function load(){
-            frob=window.document.location.search.split("?frob=")[1];
-
-            methodGetToken = "flickr.auth.getToken";
-            sig = secret + "api_key" + apiKey + "formatjsonfrob" + frob + "method" + methodGetToken;
-            signature = MD5(sig);
-            request = "http://api.flickr.com/services/rest/?method=" + methodGetToken + "&api_key=" + apiKey + "&frob=" + frob + "&format=json&api_sig=" + signature;
-            
-
-            $.ajax({
+    function request(method,callback,arguments){
+            signature = MD5( localStorage["secret"] + "api_key" + localStorage["apiKey"] + "formatjsonfrob" +    localStorage["frob"] + "method" + method);
+            req= "http://api.flickr.com/services/rest/?method=" + method + "&api_key=" + localStorage["apiKey"] + "&frob=" + localStorage["frob"] + "&format=json&api_sig=" + signature;
+        
+           $.ajax({
                         dataType: "jsonp",
-                        url: request,
+                        url: req,
                         crossDomain :true,
                         jsonp: false,
                         cache: true,
-            }).done(function(data){ jsonFlickrApi (data); }  ) ;
+            }).done(function(data){window['callback'](data); }  ) ;
 
         }
+		function load(){
+           localStorage["frob"]=window.document.location.search.split("?frob=")[1];
+            request("flickr.auth.getToken","jsonFlickrApi");
+        }
+           
     
      function jsonFlickrApi (response) {
           console.log(response );
