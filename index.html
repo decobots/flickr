@@ -3,9 +3,11 @@
 <head>
 <!--<link rel="import" href="bower_components/polymer/polymer.html">
 <link rel="import" href="bower_components/core-ajax/core-ajax.html">-->
+ <meta name="viewport"  content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <link rel="import" href="components/font-roboto/roboto.html">
 <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="md5.js"></script>
+<script src="md5.js"></script>
 <script type="text/javascript">
 			 
 		function load(){
@@ -20,12 +22,13 @@ $("#myLink").attr("href","https://flickr.com/services/auth/?api_key="+apiKey+"&p
         }
 		</script>
 </head>
-	<body onload="load()">
+	<body onload="load()" unresolved>
 		
 <br/>
   <br/>
         <br/>
-<a href=""  id="myLink">Sign in</a>
+         <paper-button raised id="myLink" center center-justified wrap href="">Sign in</paper-button>
+
 
 	</body>
 </html>
