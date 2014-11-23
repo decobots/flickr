@@ -33,6 +33,8 @@
      function jsonFlickrApi (response) {
           console.log(response );
          localStorage["token"]=response.auth.token.content;
+         localStorage["token"]=response.auth.token;
+         localStorage["token"]=response.auth.token._content;
     }
 		</script>
 </head>
